@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
   text-align: center;
 }
 
@@ -46,22 +46,36 @@ h2 {
 
 ul {
   list-style: none;
+  padding: 6px 0;
 }
 
 li {
 	font-size: 2rem;
 	font-weight: 400;
-	transition: transform 0.2s ease;
+  padding: 6px 0;
+	transition: transform 0.185s ease;
 }
 
 li:hover {
 	transform: scale(1.5);
 }
 
+/* direct neighbours of the hovered item */
+li:hover + li,
+li:has(+ li:hover) {
+	transform: scale(1.125);
+}
+
+/* two away from the hovered item */
+li:hover + li + li,
+li:has(+ li + li:hover) {
+	transform: scale(1.025);
+}
+
 a {
   color: #e37cb1;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.185s ease;
 }
 
 a:hover {
